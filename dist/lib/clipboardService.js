@@ -103,6 +103,7 @@ var ClipboardService = (function () {
         else {
             this.multipleCellRange(parsedData, currentRow, updatedRowNodes, columnsToPasteInto, cellsToFlash, updatedColumnIds, main_1.Constants.EXPORT_TYPE_CLIPBOARD);
         }
+        this.eventService.dispatchEvent('pasteComplete', this.rowModel.rowsToDisplay)
         // this is very heavy, should possibly just refresh the specific cells?
         this.rowRenderer.refreshCells({ rowNodes: updatedRowNodes, columns: updatedColumnIds });
         this.dispatchFlashCells(cellsToFlash);
